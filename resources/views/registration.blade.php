@@ -543,6 +543,7 @@
                     <h2>Заявка успешно отправлена!</h2>
                     <p id="success_message">Письмо с подтверждением регистрации отправлено на указанный email. Сохраните его — оно является официальным подтверждением участия.</p>
                     <button class="btn btn-primary" onclick="location.reload()" style="margin-top: 30px;">Новая регистрация</button>
+                    <a href="https://земля-спорта.рф/" class="btn btn-secondary" style="margin-top: 30px;">Вернуться на сайт</a>
                 </div>
             </div>
         </div>
