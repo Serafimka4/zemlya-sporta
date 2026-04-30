@@ -1159,19 +1159,42 @@
             },
             body: JSON.stringify(data),
         })
-        .then(r => r.json())
+        .then(r => {
+            if (!r.ok) {
+                return r.json().then(errData => {
+                    throw errData;
+                }).catch(e => {
+                    if (e && e.message) throw e;
+                    throw { message: 'Ошибка сервера (' + r.status + '). Попробуйте позже.' };
+                });
+            }
+            return r.json();
+        })
         .then(result => {
             document.getElementById('loading').classList.remove('active');
             if (result.success) {
-                document.getElementById('success_message').textContent = result.message;
+                const msgEl = document.getElementById('success_message');
+                if (msgEl) msgEl.textContent = result.message || 'Заявка успешно отправлена!';
                 showStep('step_success');
             } else {
-                alert(result.message || 'Произошла ошибка при отправке. Проверьте заполнение полей.');
+                let errorText = result.message || 'Произошла ошибка при отправке.';
+                if (result.errors) {
+                    const errs = Object.values(result.errors).flat();
+                    errorText += '\n' + errs.join('\n');
+                }
+                alert(errorText);
             }
         })
         .catch(err => {
             document.getElementById('loading').classList.remove('active');
-            alert('Ошибка сети. Попробуйте позже.');
+            if (err && err.errors) {
+                const errs = Object.values(err.errors).flat();
+                alert('Ошибка валидации:\n' + errs.join('\n'));
+            } else if (err && err.message) {
+                alert(err.message);
+            } else {
+                alert('Ошибка сети. Попробуйте позже.');
+            }
             console.error(err);
         });
     }
