@@ -54,13 +54,6 @@ class RegistrationController extends Controller
             'participants.*.is_minor' => 'nullable|boolean',
             'participants.*.is_captain' => 'nullable|boolean',
             'participants.*.age' => 'nullable|integer|min:1|max:120',
-            'participants.*.legal_representative' => 'nullable|array',
-            'participants.*.legal_representative.last_name' => 'nullable|string|max:255',
-            'participants.*.legal_representative.first_name' => 'nullable|string|max:255',
-            'participants.*.legal_representative.patronymic' => 'nullable|string|max:255',
-            'participants.*.legal_representative.status' => 'nullable|in:parent,adopter,guardian,trustee',
-            'participants.*.legal_representative.document' => 'nullable|string|max:255',
-            'participants.*.legal_representative.phone' => 'nullable|string|max:20',
         ]);
 
         // Additional validation for specific types
@@ -73,6 +66,11 @@ class RegistrationController extends Controller
             $request->validate([
                 'discipline' => 'required|string',
                 'participants' => 'required|array|min:2',
+            ]);
+        }
+        if ($validated['type'] === 'family') {
+            $request->validate([
+                'participants' => 'required|array|min:3',
             ]);
         }
         if ($validated['type'] === 'family') {
@@ -113,17 +111,8 @@ class RegistrationController extends Controller
                 'age' => $pData['age'] ?? null,
             ]);
 
-            if (!empty($pData['legal_representative']) && !empty($pData['legal_representative']['last_name'])) {
-                LegalRepresentative::create([
-                    'participant_id' => $participant->id,
-                    'last_name' => $pData['legal_representative']['last_name'],
-                    'first_name' => $pData['legal_representative']['first_name'] ?? '',
-                    'patronymic' => $pData['legal_representative']['patronymic'] ?? null,
-                    'status' => $pData['legal_representative']['status'] ?? 'parent',
-                    'document' => $pData['legal_representative']['document'] ?? null,
-                    'phone' => $pData['legal_representative']['phone'] ?? null,
-                ]);
-            }
+            // Legacy: legal representative support removed for family relay form
+            // Two adult participants are now required instead
         }
 
         // Send to Tilda CRM

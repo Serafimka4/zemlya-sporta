@@ -93,7 +93,6 @@
             font-family: 'Inter', sans-serif;
             transition: border-color 0.3s, box-shadow 0.3s;
             outline: none;
-            background: #fff;
         }
         input:focus, select:focus, textarea:focus {
             border-color: #2d4187;
@@ -135,7 +134,7 @@
         }
         .radio-option input[type="radio"]:checked + label {
             border-color: #2d4187;
-            background: #eef1f9;
+            background: #eef2fa;
             color: #2d4187;
         }
         .radio-option label:hover {
@@ -206,7 +205,7 @@
             gap: 12px;
         }
         .participant-card {
-            border: 2px solid #eef1f9;
+            border: 2px solid #eef2fa;
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 20px;
@@ -237,7 +236,7 @@
             font-family: 'Inter', sans-serif;
         }
         .add-participant-btn:hover {
-            background: #eef1f9;
+            background: #eef2fa;
         }
         .section-title {
             font-size: 20px;
@@ -245,7 +244,7 @@
             color: #1e2e5c;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #eef1f9;
+            border-bottom: 2px solid #eef2fa;
         }
         .discipline-grid {
             display: grid;
@@ -268,7 +267,7 @@
         }
         .discipline-option.selected {
             border-color: #2d4187;
-            background: #eef1f9;
+            background: #eef2fa;
         }
         .discipline-option input[type="radio"] {
             width: auto;
@@ -282,7 +281,7 @@
         .success-screen .icon {
             width: 80px;
             height: 80px;
-            background: #eef1f9;
+            background: #eef2fa;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -351,58 +350,54 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Municipality combobox styles */
-        .combobox-wrapper {
+        /* Municipality search combobox */
+        .municipality-search-wrapper {
             position: relative;
         }
-        .combobox-wrapper input {
+        .municipality-search-wrapper input {
             width: 100%;
         }
-        .combobox-dropdown {
+        .municipality-dropdown {
             position: absolute;
             top: 100%;
             left: 0;
             right: 0;
-            max-height: 220px;
-            overflow-y: auto;
-            background: #fff;
-            border: 2px solid #2d4187;
+            background: white;
+            border: 2px solid #e0e0e0;
             border-top: none;
             border-radius: 0 0 8px 8px;
+            max-height: 200px;
+            overflow-y: auto;
             z-index: 100;
             display: none;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .combobox-dropdown.open {
+        .municipality-dropdown.open {
             display: block;
         }
-        .combobox-option {
+        .municipality-dropdown .dropdown-item {
             padding: 10px 16px;
             cursor: pointer;
             font-size: 14px;
-            border-bottom: 1px solid #f0f0f0;
-            transition: background 0.15s;
+            transition: background 0.2s;
         }
-        .combobox-option:hover,
-        .combobox-option.highlighted {
-            background: #eef1f9;
+        .municipality-dropdown .dropdown-item:hover,
+        .municipality-dropdown .dropdown-item.highlighted {
+            background: #eef2fa;
         }
-        .combobox-option.custom-option {
+        .municipality-dropdown .dropdown-item.custom-option {
+            border-top: 1px solid #e0e0e0;
             color: #ef7e22;
             font-weight: 500;
-            font-style: italic;
         }
-        .combobox-no-results {
+        .municipality-dropdown .no-results {
             padding: 10px 16px;
             color: #999;
-            font-size: 13px;
+            font-size: 14px;
         }
 
         @media (max-width: 600px) {
-            body { padding: 10px; }
             .form-wrapper { padding: 20px; }
-            .header { padding: 28px 16px; }
-            .header h1 { font-size: 22px; }
             .inline-fields, .inline-fields-3 { grid-template-columns: 1fr; }
             .discipline-grid { grid-template-columns: 1fr; }
             .radio-group { flex-direction: column; }
@@ -464,11 +459,10 @@
 
                 <div class="form-group hidden" id="municipality_group">
                     <label>Муниципальное образование <span class="required">*</span></label>
-                    <div class="combobox-wrapper" id="municipality_combobox">
-                        <input type="text" id="municipality_input" placeholder="Начните вводить название..." autocomplete="off"
-                            onfocus="openMunicipalityDropdown()" oninput="filterMunicipalities()">
-                        <input type="hidden" id="municipality" value="">
-                        <div class="combobox-dropdown" id="municipality_dropdown"></div>
+                    <div class="municipality-search-wrapper">
+                        <input type="text" id="municipality_input" placeholder="Начните вводить название..." autocomplete="off" oninput="filterMunicipalities()" onfocus="openMunicipalityDropdown()" />
+                        <input type="hidden" id="municipality_value" />
+                        <div class="municipality-dropdown" id="municipality_dropdown"></div>
                     </div>
                     <div class="error-message" id="municipality_error">Выберите или введите муниципальное образование</div>
                 </div>
@@ -590,26 +584,20 @@
                     <h2>Заявка успешно отправлена!</h2>
                     <p id="success_message">Письмо с подтверждением регистрации отправлено на указанный email. Сохраните его — оно является официальным подтверждением участия.</p>
                     <button class="btn btn-primary" onclick="location.reload()" style="margin-top: 30px;">Новая регистрация</button>
-                    <a href="https://xn----8sbnhvfqhkho4m.xn--p1ai/" class="btn btn-secondary" style="margin-top: 12px; display: inline-block; text-decoration: none; text-align: center;">Вернуться на сайт</a>
+                    <a href="https://земля-спорта.рф/" class="btn btn-secondary" style="margin-top: 12px; display: inline-block; text-decoration: none; text-align: center;">Вернуться на сайт</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-    // ============================================================
     // State
-    // ============================================================
     let regions = [];
     let currentMunicipalities = [];
     let teamMemberCount = 0;
     let currentStep = 'landing';
 
-    // ============================================================
-    // History / Back-button handling (iPhone Safari fix)
-    // ============================================================
-    const STEP_ORDER = ['landing', 'step1', 'step2'];
-
+    // History management for back button (iPhone fix)
     function pushHistoryState(stepId) {
         currentStep = stepId;
         history.pushState({ step: stepId }, '', '');
@@ -619,10 +607,8 @@
         if (e.state && e.state.step) {
             showStepDirect(e.state.step);
         } else {
-            // No state: go to landing (or let the browser navigate away)
-            if (currentStep !== 'landing') {
-                showStepDirect('landing');
-            }
+            // No state — go to landing
+            showStepDirect('landing');
         }
     });
 
@@ -638,20 +624,19 @@
         pushHistoryState(stepId);
     }
 
-    // ============================================================
     // Init
-    // ============================================================
     document.addEventListener('DOMContentLoaded', function() {
-        // Replace initial history state
+        // Set initial state
         history.replaceState({ step: 'landing' }, '', '');
 
         fetch('/api/regions')
             .then(r => r.json())
             .then(data => {
-                // Sort alphabetically using Russian locale
-                regions = data.sort((a, b) => a.localeCompare(b, 'ru'));
+                // Sort alphabetically (Russian locale)
+                data.sort((a, b) => a.localeCompare(b, 'ru'));
+                regions = data;
                 const select = document.getElementById('subject_rf');
-                regions.forEach(region => {
+                data.forEach(region => {
                     const opt = document.createElement('option');
                     opt.value = region;
                     opt.textContent = region;
@@ -661,16 +646,13 @@
 
         // Close municipality dropdown on outside click
         document.addEventListener('click', function(e) {
-            const wrapper = document.getElementById('municipality_combobox');
+            const wrapper = document.querySelector('.municipality-search-wrapper');
             if (wrapper && !wrapper.contains(e.target)) {
                 closeMunicipalityDropdown();
             }
         });
     });
 
-    // ============================================================
-    // Navigation
-    // ============================================================
     function startRegistration() {
         showStep('step1');
     }
@@ -679,13 +661,6 @@
         showStep('landing');
     }
 
-    function goToStep1() {
-        showStep('step1');
-    }
-
-    // ============================================================
-    // Subject / Level / Type handlers
-    // ============================================================
     function onSubjectChange() {
         const subject = document.getElementById('subject_rf').value;
         if (subject && document.getElementById('level_municipal').checked) {
@@ -705,96 +680,78 @@
         }
     }
 
-    function onTypeChange() {
-        // pre-render will happen on goToStep2
-    }
-
-    // ============================================================
-    // Municipality searchable combobox
-    // ============================================================
     function loadMunicipalities(subject) {
         fetch('/api/municipalities?subject=' + encodeURIComponent(subject))
             .then(r => r.json())
             .then(data => {
                 currentMunicipalities = data.sort((a, b) => a.localeCompare(b, 'ru'));
-                // Reset
+                // Reset input
                 document.getElementById('municipality_input').value = '';
-                document.getElementById('municipality').value = '';
-                renderMunicipalityDropdown(currentMunicipalities, '');
+                document.getElementById('municipality_value').value = '';
             });
     }
 
-    function renderMunicipalityDropdown(items, query) {
-        const dropdown = document.getElementById('municipality_dropdown');
-        dropdown.innerHTML = '';
-
-        if (items.length === 0 && query.trim() === '') {
-            dropdown.innerHTML = '<div class="combobox-no-results">Начните вводить для поиска</div>';
-            return;
-        }
-
-        items.forEach(item => {
-            const div = document.createElement('div');
-            div.className = 'combobox-option';
-            div.textContent = item;
-            div.addEventListener('click', function() {
-                selectMunicipality(item);
-            });
-            dropdown.appendChild(div);
-        });
-
-        // "Add custom" option if query doesn't match any exactly
-        const trimmed = query.trim();
-        if (trimmed && !items.some(i => i.toLowerCase() === trimmed.toLowerCase())) {
-            const customDiv = document.createElement('div');
-            customDiv.className = 'combobox-option custom-option';
-            customDiv.textContent = 'Не нашли? Добавить: "' + trimmed + '"';
-            customDiv.addEventListener('click', function() {
-                selectMunicipality(trimmed);
-            });
-            dropdown.appendChild(customDiv);
-        }
-
-        if (items.length === 0 && trimmed) {
-            const noRes = document.createElement('div');
-            noRes.className = 'combobox-no-results';
-            noRes.textContent = 'Совпадений не найдено';
-            dropdown.insertBefore(noRes, dropdown.firstChild);
-        }
-    }
-
-    function filterMunicipalities() {
-        const query = document.getElementById('municipality_input').value;
-        document.getElementById('municipality').value = query.trim();
-        const filtered = currentMunicipalities.filter(m =>
-            m.toLowerCase().includes(query.toLowerCase().trim())
-        );
-        renderMunicipalityDropdown(filtered, query);
-        openMunicipalityDropdown();
-    }
-
-    function selectMunicipality(value) {
-        document.getElementById('municipality_input').value = value;
-        document.getElementById('municipality').value = value;
-        closeMunicipalityDropdown();
-    }
-
+    // Municipality search combobox
     function openMunicipalityDropdown() {
-        const dropdown = document.getElementById('municipality_dropdown');
-        dropdown.classList.add('open');
-        if (dropdown.children.length === 0) {
-            renderMunicipalityDropdown(currentMunicipalities, document.getElementById('municipality_input').value);
-        }
+        filterMunicipalities();
+        document.getElementById('municipality_dropdown').classList.add('open');
     }
 
     function closeMunicipalityDropdown() {
         document.getElementById('municipality_dropdown').classList.remove('open');
     }
 
-    // ============================================================
-    // Step 2 validation + rendering
-    // ============================================================
+    function filterMunicipalities() {
+        const input = document.getElementById('municipality_input');
+        const dropdown = document.getElementById('municipality_dropdown');
+        const query = input.value.trim().toLowerCase();
+
+        let html = '';
+        let filtered = currentMunicipalities;
+
+        if (query) {
+            filtered = currentMunicipalities.filter(m => m.toLowerCase().includes(query));
+        }
+
+        if (filtered.length > 0) {
+            filtered.forEach(m => {
+                html += `<div class="dropdown-item" onclick="selectMunicipality('${m.replace(/'/g, "\\'")}')">${m}</div>`;
+            });
+        } else if (query) {
+            html += `<div class="no-results">Ничего не найдено</div>`;
+        }
+
+        // Always show custom option if there's a query
+        if (query) {
+            html += `<div class="dropdown-item custom-option" onclick="selectCustomMunicipality()">Не нашли? Ввести свой вариант: «${input.value.trim()}»</div>`;
+        }
+
+        dropdown.innerHTML = html;
+        dropdown.classList.add('open');
+    }
+
+    function selectMunicipality(value) {
+        document.getElementById('municipality_input').value = value;
+        document.getElementById('municipality_value').value = value;
+        closeMunicipalityDropdown();
+    }
+
+    function selectCustomMunicipality() {
+        const val = document.getElementById('municipality_input').value.trim();
+        document.getElementById('municipality_value').value = val;
+        closeMunicipalityDropdown();
+    }
+
+    function onTypeChange() {
+        // pre-render will happen on step2
+    }
+
+    function goToStep1() {
+        showStep('step1');
+    }
+
     function goToStep2() {
+        // Validate step 1
         let valid = true;
         if (!document.getElementById('subject_rf').value) {
             showError('subject_rf', 'subject_rf_error'); valid = false;
@@ -806,16 +763,15 @@
         } else { document.getElementById('level_error').style.display = 'none'; }
 
         if (level && level.value === 'municipal') {
-            const munVal = document.getElementById('municipality').value.trim();
+            const munVal = document.getElementById('municipality_value').value || document.getElementById('municipality_input').value.trim();
             if (!munVal) {
-                document.getElementById('municipality_input').classList.add('error');
-                document.getElementById('municipality_error').style.display = 'block';
-                valid = false;
+                showError('municipality_input', 'municipality_error'); valid = false;
             } else {
-                document.getElementById('municipality_input').classList.remove('error');
-                document.getElementById('municipality_error').style.display = 'none';
+                hideError('municipality_input', 'municipality_error');
+                // Save value
+                document.getElementById('municipality_value').value = munVal;
             }
-        }
+        } else { hideError('municipality_input', 'municipality_error'); }
 
         const type = document.querySelector('input[name="application_type"]:checked');
         if (!type) {
@@ -824,13 +780,11 @@
 
         if (!valid) return;
 
+        // Render form based on type
         renderForm(type.value);
         showStep('step2');
     }
 
-    // ============================================================
-    // Form renderers
-    // ============================================================
     function renderForm(type) {
         document.getElementById('form_individual').classList.add('hidden');
         document.getElementById('form_team').classList.add('hidden');
@@ -838,7 +792,7 @@
 
         if (type === 'individual') {
             document.getElementById('form_individual').classList.remove('hidden');
-            document.getElementById('individual_participant').innerHTML = renderParticipantCard('ind', 'Сведения об участнике', true, true);
+            document.getElementById('individual_participant').innerHTML = renderIndividualParticipant();
         } else if (type === 'team') {
             document.getElementById('form_team').classList.remove('hidden');
             document.getElementById('team_captain').innerHTML = renderTeamCaptain();
@@ -848,105 +802,199 @@
             addTeamMember();
         } else if (type === 'family') {
             document.getElementById('form_family').classList.remove('hidden');
-            document.getElementById('family_adult1').innerHTML = renderFamilyAdult('adult1', 'Совершеннолетний участник №1');
-            document.getElementById('family_adult2').innerHTML = renderFamilyAdult('adult2', 'Совершеннолетний участник №2');
+            document.getElementById('family_adult1').innerHTML = renderFamilyAdult(1);
+            document.getElementById('family_adult2').innerHTML = renderFamilyAdult(2);
             document.getElementById('family_minor').innerHTML = renderFamilyMinor();
         }
     }
 
-    function renderParticipantCard(prefix, title, showContactFields, showStatusFields) {
-        let html = `
+    function renderIndividualParticipant() {
+        return `
         <div class="participant-card">
-            <h4>${title}</h4>
+            <h4>Сведения об участнике</h4>
             <div class="inline-fields-3">
                 <div class="form-group">
                     <label>Фамилия <span class="required">*</span></label>
-                    <input type="text" id="${prefix}_last_name" placeholder="Иванов">
+                    <input type="text" id="ind_last_name" placeholder="Иванов" required>
                 </div>
                 <div class="form-group">
                     <label>Имя <span class="required">*</span></label>
-                    <input type="text" id="${prefix}_first_name" placeholder="Иван">
+                    <input type="text" id="ind_first_name" placeholder="Иван" required>
                 </div>
                 <div class="form-group">
                     <label>Отчество</label>
-                    <input type="text" id="${prefix}_patronymic" placeholder="Иванович">
+                    <input type="text" id="ind_patronymic" placeholder="Иванович">
                 </div>
             </div>
             <div class="inline-fields">
                 <div class="form-group">
                     <label>Дата рождения <span class="required">*</span></label>
-                    <input type="date" id="${prefix}_birth_date">
+                    <input type="date" id="ind_birth_date">
                 </div>
                 <div class="form-group">
                     <label>Пол <span class="required">*</span></label>
-                    <select id="${prefix}_gender">
+                    <select id="ind_gender">
                         <option value="">— Выберите —</option>
                         <option value="male">Мужской</option>
                         <option value="female">Женский</option>
                     </select>
                 </div>
-            </div>`;
-
-        if (showStatusFields) {
-            html += `
+            </div>
             <div class="form-group">
                 <label>Статус участника <span class="required">*</span></label>
                 <div class="checkbox-group">
                     <div class="checkbox-option">
-                        <input type="radio" name="${prefix}_status" id="${prefix}_status_rural" value="rural" onchange="toggleStatusDetail('${prefix}')">
-                        <label for="${prefix}_status_rural">Проживающий на сельских территориях и агломерациях</label>
+                        <input type="radio" name="ind_status" id="ind_status_rural" value="rural" onchange="toggleStatusDetail('ind')">
+                        <label for="ind_status_rural">Проживающий на сельских территориях и агломерациях</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="radio" name="${prefix}_status" id="${prefix}_status_worker" value="apk_worker" onchange="toggleStatusDetail('${prefix}')">
-                        <label for="${prefix}_status_worker">Работающий в сфере АПК</label>
+                        <input type="radio" name="ind_status" id="ind_status_worker" value="apk_worker" onchange="toggleStatusDetail('ind')">
+                        <label for="ind_status_worker">Работающий в сфере АПК</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="radio" name="${prefix}_status" id="${prefix}_status_student" value="apk_student" onchange="toggleStatusDetail('${prefix}')">
-                        <label for="${prefix}_status_student">Обучающийся по направлениям АПК</label>
+                        <input type="radio" name="ind_status" id="ind_status_student" value="apk_student" onchange="toggleStatusDetail('ind')">
+                        <label for="ind_status_student">Обучающийся по направлениям АПК</label>
                     </div>
                 </div>
-                <input type="text" id="${prefix}_status_detail" class="status-detail-input hidden" placeholder="Укажите адрес / место работы / образовательную организацию">
-            </div>`;
-        }
-
-        if (showContactFields) {
-            html += `
+                <input type="text" id="ind_status_detail" class="status-detail-input hidden" placeholder="Укажите адрес / место работы / образовательную организацию">
+            </div>
             <div class="inline-fields">
                 <div class="form-group">
                     <label>Контактный телефон <span class="required">*</span></label>
-                    <input type="tel" id="${prefix}_phone" placeholder="+7 (999) 123-45-67">
+                    <input type="tel" id="ind_phone" placeholder="+7 (999) 123-45-67">
                 </div>
                 <div class="form-group">
                     <label>Электронная почта <span class="required">*</span></label>
-                    <input type="email" id="${prefix}_email" placeholder="email@example.ru">
+                    <input type="email" id="ind_email" placeholder="email@example.ru">
                 </div>
-            </div>`;
-        }
-
-        html += `
+            </div>
             <div class="form-group">
                 <label>Размер одежды</label>
-                <select id="${prefix}_clothing_size">
+                <select id="ind_clothing_size">
                     <option value="">— Выберите —</option>
                     <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
                 </select>
             </div>
         </div>`;
-        return html;
     }
 
-    function renderFamilyAdult(prefix, title) {
+    function renderTeamCaptain() {
         return `
         <div class="participant-card">
-            <h4>${title}</h4>
             <div class="inline-fields-3">
                 <div class="form-group">
                     <label>Фамилия <span class="required">*</span></label>
-                    <input type="text" id="${prefix}_last_name">
+                    <input type="text" id="captain_last_name" required>
                 </div>
                 <div class="form-group">
                     <label>Имя <span class="required">*</span></label>
-                    <input type="text" id="${prefix}_first_name">
+                    <input type="text" id="captain_first_name" required>
+                </div>
+                <div class="form-group">
+                    <label>Отчество</label>
+                    <input type="text" id="captain_patronymic">
+                </div>
+            </div>
+            <div class="inline-fields">
+                <div class="form-group">
+                    <label>Контактный телефон <span class="required">*</span></label>
+                    <input type="tel" id="captain_phone" placeholder="+7 (999) 123-45-67">
+                </div>
+                <div class="form-group">
+                    <label>Электронная почта <span class="required">*</span></label>
+                    <input type="email" id="captain_email" placeholder="email@example.ru">
+                </div>
+            </div>
+        </div>`;
+    }
+
+    function addTeamMember() {
+        teamMemberCount++;
+        const container = document.getElementById('team_members');
+        const div = document.createElement('div');
+        div.className = 'participant-card';
+        div.id = 'team_member_' + teamMemberCount;
+        div.innerHTML = `
+            <h4>Участник ${container.children.length + 1}</h4>
+            <button class="btn btn-danger remove-participant" onclick="removeTeamMember(${teamMemberCount})">Удалить</button>
+            <div class="inline-fields-3">
+                <div class="form-group">
+                    <label>Фамилия <span class="required">*</span></label>
+                    <input type="text" class="tm_last_name" required>
+                </div>
+                <div class="form-group">
+                    <label>Имя <span class="required">*</span></label>
+                    <input type="text" class="tm_first_name" required>
+                </div>
+                <div class="form-group">
+                    <label>Отчество</label>
+                    <input type="text" class="tm_patronymic">
+                </div>
+            </div>
+            <div class="inline-fields">
+                <div class="form-group">
+                    <label>Дата рождения <span class="required">*</span></label>
+                    <input type="date" class="tm_birth_date">
+                </div>
+                <div class="form-group">
+                    <label>Пол <span class="required">*</span></label>
+                    <select class="tm_gender">
+                        <option value="">— Выберите —</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Статус участника</label>
+                <select class="tm_status" onchange="toggleTeamStatusDetail(this)">
+                    <option value="">— Выберите —</option>
+                    <option value="rural">Проживающий на сельских территориях</option>
+                    <option value="apk_worker">Работающий в сфере АПК</option>
+                    <option value="apk_student">Обучающийся по направлениям АПК</option>
+                </select>
+                <input type="text" class="tm_status_detail hidden" placeholder="Укажите подробности">
+            </div>
+            <div class="inline-fields">
+                <div class="form-group">
+                    <label>Контактный телефон</label>
+                    <input type="tel" class="tm_phone" placeholder="+7 (999) 123-45-67">
+                </div>
+                <div class="form-group">
+                    <label>Размер одежды</label>
+                    <select class="tm_clothing_size">
+                        <option value="">— Выберите —</option>
+                        <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
+                    </select>
+                </div>
+            </div>
+        `;
+        container.appendChild(div);
+    }
+
+    function removeTeamMember(id) {
+        const el = document.getElementById('team_member_' + id);
+        if (el) el.remove();
+        // Re-number
+        const members = document.getElementById('team_members').children;
+        for (let i = 0; i < members.length; i++) {
+            members[i].querySelector('h4').textContent = 'Участник ' + (i + 1);
+        }
+    }
+
+    function renderFamilyAdult(num) {
+        const prefix = 'adult' + num;
+        return `
+        <div class="participant-card">
+            <h4>Совершеннолетний участник №${num}</h4>
+            <div class="inline-fields-3">
+                <div class="form-group">
+                    <label>Фамилия <span class="required">*</span></label>
+                    <input type="text" id="${prefix}_last_name" required>
+                </div>
+                <div class="form-group">
+                    <label>Имя <span class="required">*</span></label>
+                    <input type="text" id="${prefix}_first_name" required>
                 </div>
                 <div class="form-group">
                     <label>Отчество</label>
@@ -1005,110 +1053,6 @@
         </div>`;
     }
 
-    function renderTeamCaptain() {
-        return `
-        <div class="participant-card">
-            <div class="inline-fields-3">
-                <div class="form-group">
-                    <label>Фамилия <span class="required">*</span></label>
-                    <input type="text" id="captain_last_name">
-                </div>
-                <div class="form-group">
-                    <label>Имя <span class="required">*</span></label>
-                    <input type="text" id="captain_first_name">
-                </div>
-                <div class="form-group">
-                    <label>Отчество</label>
-                    <input type="text" id="captain_patronymic">
-                </div>
-            </div>
-            <div class="inline-fields">
-                <div class="form-group">
-                    <label>Контактный телефон <span class="required">*</span></label>
-                    <input type="tel" id="captain_phone" placeholder="+7 (999) 123-45-67">
-                </div>
-                <div class="form-group">
-                    <label>Электронная почта <span class="required">*</span></label>
-                    <input type="email" id="captain_email" placeholder="email@example.ru">
-                </div>
-            </div>
-        </div>`;
-    }
-
-    function addTeamMember() {
-        teamMemberCount++;
-        const container = document.getElementById('team_members');
-        const div = document.createElement('div');
-        div.className = 'participant-card';
-        div.id = 'team_member_' + teamMemberCount;
-        div.innerHTML = `
-            <h4>Участник ${container.children.length + 1}</h4>
-            <button class="btn btn-danger remove-participant" onclick="removeTeamMember(${teamMemberCount})">Удалить</button>
-            <div class="inline-fields-3">
-                <div class="form-group">
-                    <label>Фамилия <span class="required">*</span></label>
-                    <input type="text" class="tm_last_name">
-                </div>
-                <div class="form-group">
-                    <label>Имя <span class="required">*</span></label>
-                    <input type="text" class="tm_first_name">
-                </div>
-                <div class="form-group">
-                    <label>Отчество</label>
-                    <input type="text" class="tm_patronymic">
-                </div>
-            </div>
-            <div class="inline-fields">
-                <div class="form-group">
-                    <label>Дата рождения <span class="required">*</span></label>
-                    <input type="date" class="tm_birth_date">
-                </div>
-                <div class="form-group">
-                    <label>Пол <span class="required">*</span></label>
-                    <select class="tm_gender">
-                        <option value="">— Выберите —</option>
-                        <option value="male">Мужской</option>
-                        <option value="female">Женский</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Статус участника</label>
-                <select class="tm_status" onchange="toggleTeamStatusDetail(this)">
-                    <option value="">— Выберите —</option>
-                    <option value="rural">Проживающий на сельских территориях</option>
-                    <option value="apk_worker">Работающий в сфере АПК</option>
-                    <option value="apk_student">Обучающийся по направлениям АПК</option>
-                </select>
-                <input type="text" class="tm_status_detail hidden" placeholder="Укажите подробности">
-            </div>
-            <div class="inline-fields">
-                <div class="form-group">
-                    <label>Контактный телефон</label>
-                    <input type="tel" class="tm_phone" placeholder="+7 (999) 123-45-67">
-                </div>
-                <div class="form-group">
-                    <label>Размер одежды</label>
-                    <select class="tm_clothing_size">
-                        <option value="">— Выберите —</option>
-                        <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
-                    </select>
-                </div>
-            </div>
-        `;
-        container.appendChild(div);
-    }
-
-    function removeTeamMember(id) {
-        const el = document.getElementById('team_member_' + id);
-        if (el) el.remove();
-        const members = document.getElementById('team_members').children;
-        for (let i = 0; i < members.length; i++) {
-            const h4 = members[i].querySelector('h4');
-            if (h4) h4.textContent = 'Участник ' + (i + 1);
-        }
-    }
-
     function renderFamilyMinor() {
         return `
         <div class="participant-card">
@@ -1116,11 +1060,11 @@
             <div class="inline-fields-3">
                 <div class="form-group">
                     <label>Фамилия <span class="required">*</span></label>
-                    <input type="text" id="minor_last_name">
+                    <input type="text" id="minor_last_name" required>
                 </div>
                 <div class="form-group">
                     <label>Имя <span class="required">*</span></label>
-                    <input type="text" id="minor_first_name">
+                    <input type="text" id="minor_first_name" required>
                 </div>
                 <div class="form-group">
                     <label>Отчество</label>
@@ -1157,12 +1101,8 @@
         </div>`;
     }
 
-    // ============================================================
-    // Status detail toggle
-    // ============================================================
     function toggleStatusDetail(prefix) {
         const detail = document.getElementById(prefix + '_status_detail');
-        if (!detail) return;
         const checked = document.querySelector('input[name="' + prefix + '_status"]:checked');
         if (checked) {
             detail.classList.remove('hidden');
@@ -1180,7 +1120,6 @@
 
     function toggleTeamStatusDetail(selectEl) {
         const detail = selectEl.parentElement.querySelector('.tm_status_detail');
-        if (!detail) return;
         if (selectEl.value) {
             detail.classList.remove('hidden');
             if (selectEl.value === 'rural') detail.placeholder = 'Адрес регистрации по паспорту';
@@ -1191,26 +1130,20 @@
         }
     }
 
-    // ============================================================
-    // Error helpers
-    // ============================================================
     function showError(inputId, errorId) {
-        const inp = document.getElementById(inputId);
-        if (inp) inp.classList.add('error');
+        const el = document.getElementById(inputId);
+        if (el) el.classList.add('error');
         const err = document.getElementById(errorId);
         if (err) err.style.display = 'block';
     }
 
     function hideError(inputId, errorId) {
-        const inp = document.getElementById(inputId);
-        if (inp) inp.classList.remove('error');
+        const el = document.getElementById(inputId);
+        if (el) el.classList.remove('error');
         const err = document.getElementById(errorId);
         if (err) err.style.display = 'none';
     }
 
-    // ============================================================
-    // Submit
-    // ============================================================
     function submitForm() {
         const type = document.querySelector('input[name="application_type"]:checked').value;
         const email = document.getElementById('confirmation_email').value;
@@ -1260,11 +1193,11 @@
             if (!members) return;
             participants = participants.concat(members);
         } else if (type === 'family') {
-            const adult1 = collectFamilyAdultData('adult1', '№1');
+            const adult1 = collectFamilyAdult(1);
             if (!adult1) return;
             participants.push(adult1);
 
-            const adult2 = collectFamilyAdultData('adult2', '№2');
+            const adult2 = collectFamilyAdult(2);
             if (!adult2) return;
             participants.push(adult2);
 
@@ -1273,11 +1206,13 @@
             participants.push(minor);
         }
 
+        const munValue = document.getElementById('municipality_value').value || document.getElementById('municipality_input').value.trim();
+
         const data = {
             type: type,
             subject_rf: document.getElementById('subject_rf').value,
             participation_level: document.querySelector('input[name="participation_level"]:checked').value,
-            municipality: document.getElementById('municipality').value || null,
+            municipality: munValue || null,
             discipline: discipline,
             email: email,
             participants: participants,
@@ -1335,13 +1270,13 @@
         });
     }
 
-    // ============================================================
-    // Data collectors
-    // ============================================================
     function collectIndividualParticipant() {
         const lastName = document.getElementById('ind_last_name').value.trim();
         const firstName = document.getElementById('ind_first_name').value.trim();
-        if (!lastName || !firstName) { alert('Заполните ФИО участника'); return null; }
+        if (!lastName || !firstName) {
+            alert('Заполните ФИО участника');
+            return null;
+        }
         const status = document.querySelector('input[name="ind_status"]:checked');
         const phone = document.getElementById('ind_phone').value.trim();
         const indEmail = document.getElementById('ind_email').value.trim();
@@ -1413,18 +1348,19 @@
         return members;
     }
 
-    function collectFamilyAdultData(prefix, label) {
+    function collectFamilyAdult(num) {
+        const prefix = 'adult' + num;
         const lastName = document.getElementById(prefix + '_last_name').value.trim();
         const firstName = document.getElementById(prefix + '_first_name').value.trim();
-        if (!lastName || !firstName) { alert('Заполните ФИО совершеннолетнего участника ' + label); return null; }
-        if (!document.getElementById(prefix + '_birth_date').value) { alert('Укажите дату рождения совершеннолетнего участника ' + label); return null; }
-        if (!document.getElementById(prefix + '_gender').value) { alert('Укажите пол совершеннолетнего участника ' + label); return null; }
+        if (!lastName || !firstName) { alert('Заполните ФИО совершеннолетнего участника №' + num); return null; }
+        if (!document.getElementById(prefix + '_birth_date').value) { alert('Укажите дату рождения взрослого участника №' + num); return null; }
+        if (!document.getElementById(prefix + '_gender').value) { alert('Укажите пол взрослого участника №' + num); return null; }
         const status = document.querySelector('input[name="' + prefix + '_status"]:checked');
-        if (!status) { alert('Выберите статус совершеннолетнего участника ' + label); return null; }
+        if (!status) { alert('Выберите статус взрослого участника №' + num); return null; }
         const phone = document.getElementById(prefix + '_phone').value.trim();
         const adEmail = document.getElementById(prefix + '_email').value.trim();
-        if (!phone) { alert('Укажите телефон совершеннолетнего участника ' + label); return null; }
-        if (!adEmail) { alert('Укажите email совершеннолетнего участника ' + label); return null; }
+        if (!phone) { alert('Укажите телефон взрослого участника №' + num); return null; }
+        if (!adEmail) { alert('Укажите email взрослого участника №' + num); return null; }
 
         return {
             last_name: lastName,
