@@ -379,7 +379,7 @@
                 <div style="text-align: center; padding: 40px 0;">
                     <h2 style="color: #1a5c2e; margin-bottom: 16px;">Добро пожаловать!</h2>
                     <p style="color: #666; margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">
-                        Для участия в Региональном этапе Всероссийского Марафона «Земля спорта — 2026» заполните форму регистрации.
+                        Для участия во Всероссийского Марафона «Земля спорта — 2026» заполните форму регистрации.
                     </p>
                     <button class="btn btn-primary" onclick="startRegistration()" style="font-size: 18px; padding: 18px 48px;">
                         Зарегистрироваться
