@@ -75,6 +75,11 @@ class RegistrationController extends Controller
                 'participants' => 'required|array|min:2',
             ]);
         }
+        if ($validated['type'] === 'family') {
+            $request->validate([
+                'participants' => 'required|array|min:3', // 2 adults + 1 minor
+            ]);
+        }
 
         $token = Str::random(64);
 

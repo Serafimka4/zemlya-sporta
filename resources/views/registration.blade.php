@@ -10,7 +10,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #f1f1f1;
             min-height: 100vh;
             padding: 20px;
         }
@@ -21,7 +21,7 @@
         .header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, #1a5c2e 0%, #2d7a3a 50%, #4CAF50 100%);
+            background: linear-gradient(135deg, #1e2e5c 0%, #2d4187 50%, #4a6bc7 100%);
             border-radius: 16px 16px 0 0;
             color: white;
         }
@@ -29,6 +29,7 @@
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 8px;
+            color: #eab04b;
         }
         .header p {
             font-size: 16px;
@@ -65,10 +66,10 @@
             transition: background 0.3s;
         }
         .progress-step.active {
-            background: #4CAF50;
+            background: #ef7e22;
         }
         .progress-step.completed {
-            background: #2d7a3a;
+            background: #2d4187;
         }
         .form-group {
             margin-bottom: 20px;
@@ -92,10 +93,11 @@
             font-family: 'Inter', sans-serif;
             transition: border-color 0.3s, box-shadow 0.3s;
             outline: none;
+            background: #fff;
         }
         input:focus, select:focus, textarea:focus {
-            border-color: #4CAF50;
-            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+            border-color: #2d4187;
+            box-shadow: 0 0 0 3px rgba(45, 65, 135, 0.1);
         }
         input.error, select.error {
             border-color: #e53935;
@@ -132,13 +134,13 @@
             font-weight: 500;
         }
         .radio-option input[type="radio"]:checked + label {
-            border-color: #4CAF50;
-            background: #e8f5e9;
-            color: #2d7a3a;
+            border-color: #2d4187;
+            background: #eef1f9;
+            color: #2d4187;
         }
         .radio-option label:hover {
-            border-color: #4CAF50;
-            background: #f1f8e9;
+            border-color: #2d4187;
+            background: #f5f7fc;
         }
         .checkbox-group {
             display: flex;
@@ -154,7 +156,7 @@
         .checkbox-option input[type="checkbox"] {
             width: auto;
             margin-top: 3px;
-            accent-color: #4CAF50;
+            accent-color: #2d4187;
         }
         .checkbox-option label {
             font-size: 14px;
@@ -172,12 +174,12 @@
             font-family: 'Inter', sans-serif;
         }
         .btn-primary {
-            background: linear-gradient(135deg, #2d7a3a, #4CAF50);
+            background: linear-gradient(135deg, #e16500, #ef7e22);
             color: white;
         }
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+            box-shadow: 0 4px 15px rgba(239, 126, 34, 0.4);
         }
         .btn-secondary {
             background: #f5f5f5;
@@ -204,15 +206,15 @@
             gap: 12px;
         }
         .participant-card {
-            border: 2px solid #e8f5e9;
+            border: 2px solid #eef1f9;
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 20px;
-            background: #fafffe;
+            background: #fafbff;
             position: relative;
         }
         .participant-card h4 {
-            color: #2d7a3a;
+            color: #2d4187;
             margin-bottom: 16px;
             font-size: 16px;
         }
@@ -224,10 +226,10 @@
         .add-participant-btn {
             width: 100%;
             padding: 16px;
-            border: 2px dashed #4CAF50;
+            border: 2px dashed #2d4187;
             border-radius: 12px;
             background: transparent;
-            color: #4CAF50;
+            color: #2d4187;
             font-size: 15px;
             font-weight: 500;
             cursor: pointer;
@@ -235,15 +237,15 @@
             font-family: 'Inter', sans-serif;
         }
         .add-participant-btn:hover {
-            background: #e8f5e9;
+            background: #eef1f9;
         }
         .section-title {
             font-size: 20px;
             font-weight: 600;
-            color: #1a5c2e;
+            color: #1e2e5c;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #e8f5e9;
+            border-bottom: 2px solid #eef1f9;
         }
         .discipline-grid {
             display: grid;
@@ -261,16 +263,16 @@
             transition: all 0.3s;
         }
         .discipline-option:hover {
-            border-color: #4CAF50;
-            background: #f1f8e9;
+            border-color: #2d4187;
+            background: #f5f7fc;
         }
         .discipline-option.selected {
-            border-color: #4CAF50;
-            background: #e8f5e9;
+            border-color: #2d4187;
+            background: #eef1f9;
         }
         .discipline-option input[type="radio"] {
             width: auto;
-            accent-color: #4CAF50;
+            accent-color: #2d4187;
         }
         .hidden { display: none !important; }
         .success-screen {
@@ -280,16 +282,17 @@
         .success-screen .icon {
             width: 80px;
             height: 80px;
-            background: #e8f5e9;
+            background: #eef1f9;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
             font-size: 40px;
+            color: #2d4187;
         }
         .success-screen h2 {
-            color: #2d7a3a;
+            color: #2d4187;
             margin-bottom: 12px;
         }
         .success-screen p {
@@ -309,17 +312,6 @@
         .status-detail-input {
             margin-top: 8px;
         }
-        .legal-rep-block {
-            border: 2px solid #fff3cd;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 16px;
-            background: #fffde7;
-        }
-        .legal-rep-block h5 {
-            color: #f57f17;
-            margin-bottom: 12px;
-        }
         .consent-block {
             background: #f5f5f5;
             border-radius: 8px;
@@ -337,7 +329,7 @@
         .consent-block input[type="checkbox"] {
             width: auto;
             margin-top: 2px;
-            accent-color: #4CAF50;
+            accent-color: #2d4187;
         }
         .loading {
             display: none;
@@ -347,7 +339,7 @@
         .loading.active { display: block; }
         .spinner {
             border: 3px solid #f3f3f3;
-            border-top: 3px solid #4CAF50;
+            border-top: 3px solid #2d4187;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -358,8 +350,59 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Municipality combobox styles */
+        .combobox-wrapper {
+            position: relative;
+        }
+        .combobox-wrapper input {
+            width: 100%;
+        }
+        .combobox-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            max-height: 220px;
+            overflow-y: auto;
+            background: #fff;
+            border: 2px solid #2d4187;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            z-index: 100;
+            display: none;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        .combobox-dropdown.open {
+            display: block;
+        }
+        .combobox-option {
+            padding: 10px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.15s;
+        }
+        .combobox-option:hover,
+        .combobox-option.highlighted {
+            background: #eef1f9;
+        }
+        .combobox-option.custom-option {
+            color: #ef7e22;
+            font-weight: 500;
+            font-style: italic;
+        }
+        .combobox-no-results {
+            padding: 10px 16px;
+            color: #999;
+            font-size: 13px;
+        }
+
         @media (max-width: 600px) {
+            body { padding: 10px; }
             .form-wrapper { padding: 20px; }
+            .header { padding: 28px 16px; }
+            .header h1 { font-size: 22px; }
             .inline-fields, .inline-fields-3 { grid-template-columns: 1fr; }
             .discipline-grid { grid-template-columns: 1fr; }
             .radio-group { flex-direction: column; }
@@ -371,15 +414,15 @@
     <div class="container">
         <div class="header">
             <h1>Всероссийский Марафон «Земля спорта — 2026»</h1>
-            <p>Региональный этап — Регистрация участников</p>
+            <p>Регистрация участников</p>
         </div>
         <div class="form-wrapper">
             <!-- Landing -->
             <div id="landing" class="step active">
                 <div style="text-align: center; padding: 40px 0;">
-                    <h2 style="color: #1a5c2e; margin-bottom: 16px;">Добро пожаловать!</h2>
+                    <h2 style="color: #1e2e5c; margin-bottom: 16px;">Добро пожаловать!</h2>
                     <p style="color: #666; margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">
-                        Для участия во Всероссийского Марафона «Земля спорта — 2026» заполните форму регистрации.
+                        Для участия во Всероссийском Марафоне «Земля спорта — 2026» заполните форму регистрации.
                     </p>
                     <button class="btn btn-primary" onclick="startRegistration()" style="font-size: 18px; padding: 18px 48px;">
                         Зарегистрироваться
@@ -421,10 +464,13 @@
 
                 <div class="form-group hidden" id="municipality_group">
                     <label>Муниципальное образование <span class="required">*</span></label>
-                    <select id="municipality">
-                        <option value="">— Выберите муниципальное образование —</option>
-                    </select>
-                    <div class="error-message" id="municipality_error">Выберите муниципальное образование</div>
+                    <div class="combobox-wrapper" id="municipality_combobox">
+                        <input type="text" id="municipality_input" placeholder="Начните вводить название..." autocomplete="off"
+                            onfocus="openMunicipalityDropdown()" oninput="filterMunicipalities()">
+                        <input type="hidden" id="municipality" value="">
+                        <div class="combobox-dropdown" id="municipality_dropdown"></div>
+                    </div>
+                    <div class="error-message" id="municipality_error">Выберите или введите муниципальное образование</div>
                 </div>
 
                 <div class="form-group">
@@ -493,9 +539,9 @@
                         </div>
                         <div class="error-message" id="team_discipline_error">Выберите дисциплину</div>
                     </div>
-                    <h4 style="color: #2d7a3a; margin-bottom: 16px;">Капитан команды</h4>
+                    <h4 style="color: #2d4187; margin-bottom: 16px;">Капитан команды</h4>
                     <div id="team_captain"></div>
-                    <h4 style="color: #2d7a3a; margin: 20px 0 16px;">Состав команды</h4>
+                    <h4 style="color: #2d4187; margin: 20px 0 16px;">Состав команды</h4>
                     <div id="team_members"></div>
                     <button class="add-participant-btn" onclick="addTeamMember()">+ Добавить участника</button>
                 </div>
@@ -503,11 +549,12 @@
                 <!-- Family Form -->
                 <div id="form_family" class="hidden">
                     <h3 class="section-title">Форма №3 — Семейная эстафета</h3>
-                    <h4 style="color: #2d7a3a; margin-bottom: 16px;">Совершеннолетний участник</h4>
-                    <div id="family_adult"></div>
-                    <h4 style="color: #2d7a3a; margin: 20px 0 16px;">Несовершеннолетний участник</h4>
+                    <h4 style="color: #2d4187; margin-bottom: 16px;">Совершеннолетний участник №1</h4>
+                    <div id="family_adult1"></div>
+                    <h4 style="color: #2d4187; margin: 20px 0 16px;">Совершеннолетний участник №2</h4>
+                    <div id="family_adult2"></div>
+                    <h4 style="color: #2d4187; margin: 20px 0 16px;">Несовершеннолетний участник</h4>
                     <div id="family_minor"></div>
-                    <div id="legal_rep_section"></div>
                 </div>
 
                 <!-- Common email -->
@@ -543,34 +590,87 @@
                     <h2>Заявка успешно отправлена!</h2>
                     <p id="success_message">Письмо с подтверждением регистрации отправлено на указанный email. Сохраните его — оно является официальным подтверждением участия.</p>
                     <button class="btn btn-primary" onclick="location.reload()" style="margin-top: 30px;">Новая регистрация</button>
-                    <a href="https://земля-спорта.рф/" class="btn btn-secondary" style="margin-top: 30px;">Вернуться на сайт</a>
+                    <a href="https://xn----8sbnhvfqhkho4m.xn--p1ai/" class="btn btn-secondary" style="margin-top: 12px; display: inline-block; text-decoration: none; text-align: center;">Вернуться на сайт</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+    // ============================================================
     // State
+    // ============================================================
     let regions = [];
-    let municipalities = {};
-    let teamMemberCount = 2;
+    let currentMunicipalities = [];
+    let teamMemberCount = 0;
+    let currentStep = 'landing';
 
+    // ============================================================
+    // History / Back-button handling (iPhone Safari fix)
+    // ============================================================
+    const STEP_ORDER = ['landing', 'step1', 'step2'];
+
+    function pushHistoryState(stepId) {
+        currentStep = stepId;
+        history.pushState({ step: stepId }, '', '');
+    }
+
+    window.addEventListener('popstate', function(e) {
+        if (e.state && e.state.step) {
+            showStepDirect(e.state.step);
+        } else {
+            // No state: go to landing (or let the browser navigate away)
+            if (currentStep !== 'landing') {
+                showStepDirect('landing');
+            }
+        }
+    });
+
+    function showStepDirect(stepId) {
+        currentStep = stepId;
+        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+        const el = document.getElementById(stepId);
+        if (el) el.classList.add('active');
+    }
+
+    function showStep(stepId) {
+        showStepDirect(stepId);
+        pushHistoryState(stepId);
+    }
+
+    // ============================================================
     // Init
+    // ============================================================
     document.addEventListener('DOMContentLoaded', function() {
+        // Replace initial history state
+        history.replaceState({ step: 'landing' }, '', '');
+
         fetch('/api/regions')
             .then(r => r.json())
             .then(data => {
-                regions = data;
+                // Sort alphabetically using Russian locale
+                regions = data.sort((a, b) => a.localeCompare(b, 'ru'));
                 const select = document.getElementById('subject_rf');
-                data.forEach(region => {
+                regions.forEach(region => {
                     const opt = document.createElement('option');
                     opt.value = region;
                     opt.textContent = region;
                     select.appendChild(opt);
                 });
             });
+
+        // Close municipality dropdown on outside click
+        document.addEventListener('click', function(e) {
+            const wrapper = document.getElementById('municipality_combobox');
+            if (wrapper && !wrapper.contains(e.target)) {
+                closeMunicipalityDropdown();
+            }
+        });
     });
 
+    // ============================================================
+    // Navigation
+    // ============================================================
     function startRegistration() {
         showStep('step1');
     }
@@ -579,11 +679,13 @@
         showStep('landing');
     }
 
-    function showStep(stepId) {
-        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-        document.getElementById(stepId).classList.add('active');
+    function goToStep1() {
+        showStep('step1');
     }
 
+    // ============================================================
+    // Subject / Level / Type handlers
+    // ============================================================
     function onSubjectChange() {
         const subject = document.getElementById('subject_rf').value;
         if (subject && document.getElementById('level_municipal').checked) {
@@ -603,31 +705,96 @@
         }
     }
 
+    function onTypeChange() {
+        // pre-render will happen on goToStep2
+    }
+
+    // ============================================================
+    // Municipality searchable combobox
+    // ============================================================
     function loadMunicipalities(subject) {
         fetch('/api/municipalities?subject=' + encodeURIComponent(subject))
             .then(r => r.json())
             .then(data => {
-                const select = document.getElementById('municipality');
-                select.innerHTML = '<option value="">— Выберите муниципальное образование —</option>';
-                data.forEach(m => {
-                    const opt = document.createElement('option');
-                    opt.value = m;
-                    opt.textContent = m;
-                    select.appendChild(opt);
-                });
+                currentMunicipalities = data.sort((a, b) => a.localeCompare(b, 'ru'));
+                // Reset
+                document.getElementById('municipality_input').value = '';
+                document.getElementById('municipality').value = '';
+                renderMunicipalityDropdown(currentMunicipalities, '');
             });
     }
 
-    function onTypeChange() {
-        // pre-render will happen on step2
+    function renderMunicipalityDropdown(items, query) {
+        const dropdown = document.getElementById('municipality_dropdown');
+        dropdown.innerHTML = '';
+
+        if (items.length === 0 && query.trim() === '') {
+            dropdown.innerHTML = '<div class="combobox-no-results">Начните вводить для поиска</div>';
+            return;
+        }
+
+        items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'combobox-option';
+            div.textContent = item;
+            div.addEventListener('click', function() {
+                selectMunicipality(item);
+            });
+            dropdown.appendChild(div);
+        });
+
+        // "Add custom" option if query doesn't match any exactly
+        const trimmed = query.trim();
+        if (trimmed && !items.some(i => i.toLowerCase() === trimmed.toLowerCase())) {
+            const customDiv = document.createElement('div');
+            customDiv.className = 'combobox-option custom-option';
+            customDiv.textContent = 'Не нашли? Добавить: "' + trimmed + '"';
+            customDiv.addEventListener('click', function() {
+                selectMunicipality(trimmed);
+            });
+            dropdown.appendChild(customDiv);
+        }
+
+        if (items.length === 0 && trimmed) {
+            const noRes = document.createElement('div');
+            noRes.className = 'combobox-no-results';
+            noRes.textContent = 'Совпадений не найдено';
+            dropdown.insertBefore(noRes, dropdown.firstChild);
+        }
     }
 
-    function goToStep1() {
-        showStep('step1');
+    function filterMunicipalities() {
+        const query = document.getElementById('municipality_input').value;
+        document.getElementById('municipality').value = query.trim();
+        const filtered = currentMunicipalities.filter(m =>
+            m.toLowerCase().includes(query.toLowerCase().trim())
+        );
+        renderMunicipalityDropdown(filtered, query);
+        openMunicipalityDropdown();
     }
 
+    function selectMunicipality(value) {
+        document.getElementById('municipality_input').value = value;
+        document.getElementById('municipality').value = value;
+        closeMunicipalityDropdown();
+    }
+
+    function openMunicipalityDropdown() {
+        const dropdown = document.getElementById('municipality_dropdown');
+        dropdown.classList.add('open');
+        if (dropdown.children.length === 0) {
+            renderMunicipalityDropdown(currentMunicipalities, document.getElementById('municipality_input').value);
+        }
+    }
+
+    function closeMunicipalityDropdown() {
+        document.getElementById('municipality_dropdown').classList.remove('open');
+    }
+
+    // ============================================================
+    // Step 2 validation + rendering
+    // ============================================================
     function goToStep2() {
-        // Validate step 1
         let valid = true;
         if (!document.getElementById('subject_rf').value) {
             showError('subject_rf', 'subject_rf_error'); valid = false;
@@ -638,9 +805,17 @@
             document.getElementById('level_error').style.display = 'block'; valid = false;
         } else { document.getElementById('level_error').style.display = 'none'; }
 
-        if (level && level.value === 'municipal' && !document.getElementById('municipality').value) {
-            showError('municipality', 'municipality_error'); valid = false;
-        } else { hideError('municipality', 'municipality_error'); }
+        if (level && level.value === 'municipal') {
+            const munVal = document.getElementById('municipality').value.trim();
+            if (!munVal) {
+                document.getElementById('municipality_input').classList.add('error');
+                document.getElementById('municipality_error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('municipality_input').classList.remove('error');
+                document.getElementById('municipality_error').style.display = 'none';
+            }
+        }
 
         const type = document.querySelector('input[name="application_type"]:checked');
         if (!type) {
@@ -649,11 +824,13 @@
 
         if (!valid) return;
 
-        // Render form based on type
         renderForm(type.value);
         showStep('step2');
     }
 
+    // ============================================================
+    // Form renderers
+    // ============================================================
     function renderForm(type) {
         document.getElementById('form_individual').classList.add('hidden');
         document.getElementById('form_team').classList.add('hidden');
@@ -661,7 +838,7 @@
 
         if (type === 'individual') {
             document.getElementById('form_individual').classList.remove('hidden');
-            document.getElementById('individual_participant').innerHTML = renderIndividualParticipant();
+            document.getElementById('individual_participant').innerHTML = renderParticipantCard('ind', 'Сведения об участнике', true, true);
         } else if (type === 'team') {
             document.getElementById('form_team').classList.remove('hidden');
             document.getElementById('team_captain').innerHTML = renderTeamCaptain();
@@ -671,38 +848,119 @@
             addTeamMember();
         } else if (type === 'family') {
             document.getElementById('form_family').classList.remove('hidden');
-            document.getElementById('family_adult').innerHTML = renderFamilyAdult();
+            document.getElementById('family_adult1').innerHTML = renderFamilyAdult('adult1', 'Совершеннолетний участник №1');
+            document.getElementById('family_adult2').innerHTML = renderFamilyAdult('adult2', 'Совершеннолетний участник №2');
             document.getElementById('family_minor').innerHTML = renderFamilyMinor();
-            document.getElementById('legal_rep_section').innerHTML = renderLegalRep();
         }
     }
 
-    function renderIndividualParticipant() {
-        return `
+    function renderParticipantCard(prefix, title, showContactFields, showStatusFields) {
+        let html = `
         <div class="participant-card">
-            <h4>Сведения об участнике</h4>
+            <h4>${title}</h4>
             <div class="inline-fields-3">
                 <div class="form-group">
                     <label>Фамилия <span class="required">*</span></label>
-                    <input type="text" id="ind_last_name" placeholder="Иванов" required>
+                    <input type="text" id="${prefix}_last_name" placeholder="Иванов">
                 </div>
                 <div class="form-group">
                     <label>Имя <span class="required">*</span></label>
-                    <input type="text" id="ind_first_name" placeholder="Иван" required>
+                    <input type="text" id="${prefix}_first_name" placeholder="Иван">
                 </div>
                 <div class="form-group">
                     <label>Отчество</label>
-                    <input type="text" id="ind_patronymic" placeholder="Иванович">
+                    <input type="text" id="${prefix}_patronymic" placeholder="Иванович">
                 </div>
             </div>
             <div class="inline-fields">
                 <div class="form-group">
                     <label>Дата рождения <span class="required">*</span></label>
-                    <input type="date" id="ind_birth_date">
+                    <input type="date" id="${prefix}_birth_date">
                 </div>
                 <div class="form-group">
                     <label>Пол <span class="required">*</span></label>
-                    <select id="ind_gender">
+                    <select id="${prefix}_gender">
+                        <option value="">— Выберите —</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select>
+                </div>
+            </div>`;
+
+        if (showStatusFields) {
+            html += `
+            <div class="form-group">
+                <label>Статус участника <span class="required">*</span></label>
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input type="radio" name="${prefix}_status" id="${prefix}_status_rural" value="rural" onchange="toggleStatusDetail('${prefix}')">
+                        <label for="${prefix}_status_rural">Проживающий на сельских территориях и агломерациях</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="radio" name="${prefix}_status" id="${prefix}_status_worker" value="apk_worker" onchange="toggleStatusDetail('${prefix}')">
+                        <label for="${prefix}_status_worker">Работающий в сфере АПК</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="radio" name="${prefix}_status" id="${prefix}_status_student" value="apk_student" onchange="toggleStatusDetail('${prefix}')">
+                        <label for="${prefix}_status_student">Обучающийся по направлениям АПК</label>
+                    </div>
+                </div>
+                <input type="text" id="${prefix}_status_detail" class="status-detail-input hidden" placeholder="Укажите адрес / место работы / образовательную организацию">
+            </div>`;
+        }
+
+        if (showContactFields) {
+            html += `
+            <div class="inline-fields">
+                <div class="form-group">
+                    <label>Контактный телефон <span class="required">*</span></label>
+                    <input type="tel" id="${prefix}_phone" placeholder="+7 (999) 123-45-67">
+                </div>
+                <div class="form-group">
+                    <label>Электронная почта <span class="required">*</span></label>
+                    <input type="email" id="${prefix}_email" placeholder="email@example.ru">
+                </div>
+            </div>`;
+        }
+
+        html += `
+            <div class="form-group">
+                <label>Размер одежды</label>
+                <select id="${prefix}_clothing_size">
+                    <option value="">— Выберите —</option>
+                    <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
+                </select>
+            </div>
+        </div>`;
+        return html;
+    }
+
+    function renderFamilyAdult(prefix, title) {
+        return `
+        <div class="participant-card">
+            <h4>${title}</h4>
+            <div class="inline-fields-3">
+                <div class="form-group">
+                    <label>Фамилия <span class="required">*</span></label>
+                    <input type="text" id="${prefix}_last_name">
+                </div>
+                <div class="form-group">
+                    <label>Имя <span class="required">*</span></label>
+                    <input type="text" id="${prefix}_first_name">
+                </div>
+                <div class="form-group">
+                    <label>Отчество</label>
+                    <input type="text" id="${prefix}_patronymic">
+                </div>
+            </div>
+            <div class="inline-fields">
+                <div class="form-group">
+                    <label>Дата рождения <span class="required">*</span></label>
+                    <input type="date" id="${prefix}_birth_date">
+                </div>
+                <div class="form-group">
+                    <label>Пол <span class="required">*</span></label>
+                    <select id="${prefix}_gender">
                         <option value="">— Выберите —</option>
                         <option value="male">Мужской</option>
                         <option value="female">Женский</option>
@@ -713,33 +971,33 @@
                 <label>Статус участника <span class="required">*</span></label>
                 <div class="checkbox-group">
                     <div class="checkbox-option">
-                        <input type="radio" name="ind_status" id="ind_status_rural" value="rural" onchange="toggleStatusDetail('ind')">
-                        <label for="ind_status_rural">Проживающий на сельских территориях и агломерациях</label>
+                        <input type="radio" name="${prefix}_status" id="${prefix}_status_rural" value="rural" onchange="toggleStatusDetail('${prefix}')">
+                        <label for="${prefix}_status_rural">Проживающий на сельских территориях и агломерациях</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="radio" name="ind_status" id="ind_status_worker" value="apk_worker" onchange="toggleStatusDetail('ind')">
-                        <label for="ind_status_worker">Работающий в сфере АПК</label>
+                        <input type="radio" name="${prefix}_status" id="${prefix}_status_worker" value="apk_worker" onchange="toggleStatusDetail('${prefix}')">
+                        <label for="${prefix}_status_worker">Работающий в сфере АПК</label>
                     </div>
                     <div class="checkbox-option">
-                        <input type="radio" name="ind_status" id="ind_status_student" value="apk_student" onchange="toggleStatusDetail('ind')">
-                        <label for="ind_status_student">Обучающийся по направлениям АПК</label>
+                        <input type="radio" name="${prefix}_status" id="${prefix}_status_student" value="apk_student" onchange="toggleStatusDetail('${prefix}')">
+                        <label for="${prefix}_status_student">Обучающийся по направлениям АПК</label>
                     </div>
                 </div>
-                <input type="text" id="ind_status_detail" class="status-detail-input hidden" placeholder="Укажите адрес / место работы / образовательную организацию">
+                <input type="text" id="${prefix}_status_detail" class="status-detail-input hidden" placeholder="Укажите адрес / место работы / образовательную организацию">
             </div>
             <div class="inline-fields">
                 <div class="form-group">
                     <label>Контактный телефон <span class="required">*</span></label>
-                    <input type="tel" id="ind_phone" placeholder="+7 (999) 123-45-67">
+                    <input type="tel" id="${prefix}_phone" placeholder="+7 (999) 123-45-67">
                 </div>
                 <div class="form-group">
                     <label>Электронная почта <span class="required">*</span></label>
-                    <input type="email" id="ind_email" placeholder="email@example.ru">
+                    <input type="email" id="${prefix}_email" placeholder="email@example.ru">
                 </div>
             </div>
             <div class="form-group">
                 <label>Размер одежды</label>
-                <select id="ind_clothing_size">
+                <select id="${prefix}_clothing_size">
                     <option value="">— Выберите —</option>
                     <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
                 </select>
@@ -753,11 +1011,11 @@
             <div class="inline-fields-3">
                 <div class="form-group">
                     <label>Фамилия <span class="required">*</span></label>
-                    <input type="text" id="captain_last_name" required>
+                    <input type="text" id="captain_last_name">
                 </div>
                 <div class="form-group">
                     <label>Имя <span class="required">*</span></label>
-                    <input type="text" id="captain_first_name" required>
+                    <input type="text" id="captain_first_name">
                 </div>
                 <div class="form-group">
                     <label>Отчество</label>
@@ -789,11 +1047,11 @@
             <div class="inline-fields-3">
                 <div class="form-group">
                     <label>Фамилия <span class="required">*</span></label>
-                    <input type="text" class="tm_last_name" required>
+                    <input type="text" class="tm_last_name">
                 </div>
                 <div class="form-group">
                     <label>Имя <span class="required">*</span></label>
-                    <input type="text" class="tm_first_name" required>
+                    <input type="text" class="tm_first_name">
                 </div>
                 <div class="form-group">
                     <label>Отчество</label>
@@ -844,81 +1102,11 @@
     function removeTeamMember(id) {
         const el = document.getElementById('team_member_' + id);
         if (el) el.remove();
-        // Re-number
         const members = document.getElementById('team_members').children;
         for (let i = 0; i < members.length; i++) {
-            members[i].querySelector('h4').textContent = 'Участник ' + (i + 1);
+            const h4 = members[i].querySelector('h4');
+            if (h4) h4.textContent = 'Участник ' + (i + 1);
         }
-    }
-
-    function renderFamilyAdult() {
-        return `
-        <div class="participant-card">
-            <h4>Совершеннолетний участник</h4>
-            <div class="inline-fields-3">
-                <div class="form-group">
-                    <label>Фамилия <span class="required">*</span></label>
-                    <input type="text" id="adult_last_name" required>
-                </div>
-                <div class="form-group">
-                    <label>Имя <span class="required">*</span></label>
-                    <input type="text" id="adult_first_name" required>
-                </div>
-                <div class="form-group">
-                    <label>Отчество</label>
-                    <input type="text" id="adult_patronymic">
-                </div>
-            </div>
-            <div class="inline-fields">
-                <div class="form-group">
-                    <label>Дата рождения <span class="required">*</span></label>
-                    <input type="date" id="adult_birth_date">
-                </div>
-                <div class="form-group">
-                    <label>Пол <span class="required">*</span></label>
-                    <select id="adult_gender">
-                        <option value="">— Выберите —</option>
-                        <option value="male">Мужской</option>
-                        <option value="female">Женский</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Статус участника <span class="required">*</span></label>
-                <div class="checkbox-group">
-                    <div class="checkbox-option">
-                        <input type="radio" name="adult_status" id="adult_status_rural" value="rural" onchange="toggleStatusDetail('adult')">
-                        <label for="adult_status_rural">Проживающий на сельских территориях и агломерациях</label>
-                    </div>
-                    <div class="checkbox-option">
-                        <input type="radio" name="adult_status" id="adult_status_worker" value="apk_worker" onchange="toggleStatusDetail('adult')">
-                        <label for="adult_status_worker">Работающий в сфере АПК</label>
-                    </div>
-                    <div class="checkbox-option">
-                        <input type="radio" name="adult_status" id="adult_status_student" value="apk_student" onchange="toggleStatusDetail('adult')">
-                        <label for="adult_status_student">Обучающийся по направлениям АПК</label>
-                    </div>
-                </div>
-                <input type="text" id="adult_status_detail" class="status-detail-input hidden" placeholder="Укажите адрес / место работы / образовательную организацию">
-            </div>
-            <div class="inline-fields">
-                <div class="form-group">
-                    <label>Контактный телефон <span class="required">*</span></label>
-                    <input type="tel" id="adult_phone" placeholder="+7 (999) 123-45-67">
-                </div>
-                <div class="form-group">
-                    <label>Электронная почта <span class="required">*</span></label>
-                    <input type="email" id="adult_email" placeholder="email@example.ru">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Размер одежды</label>
-                <select id="adult_clothing_size">
-                    <option value="">— Выберите —</option>
-                    <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
-                </select>
-            </div>
-        </div>`;
     }
 
     function renderFamilyMinor() {
@@ -928,11 +1116,11 @@
             <div class="inline-fields-3">
                 <div class="form-group">
                     <label>Фамилия <span class="required">*</span></label>
-                    <input type="text" id="minor_last_name" required>
+                    <input type="text" id="minor_last_name">
                 </div>
                 <div class="form-group">
                     <label>Имя <span class="required">*</span></label>
-                    <input type="text" id="minor_first_name" required>
+                    <input type="text" id="minor_first_name">
                 </div>
                 <div class="form-group">
                     <label>Отчество</label>
@@ -969,79 +1157,12 @@
         </div>`;
     }
 
-    function renderLegalRep() {
-        return `
-        <div class="legal-rep-block">
-            <h5>Сведения о законном представителе несовершеннолетнего</h5>
-            <p style="font-size: 12px; color: #666; margin-bottom: 16px;">* Если взрослый участник является законным представителем несовершеннолетнего, отметьте галочку ниже.</p>
-            <div class="form-group">
-                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                    <input type="checkbox" id="adult_is_rep" onchange="toggleLegalRepFields()" style="width: auto; accent-color: #4CAF50;">
-                    Взрослый участник является законным представителем
-                </label>
-            </div>
-            <div id="legal_rep_fields">
-                <div class="inline-fields-3">
-                    <div class="form-group">
-                        <label>Фамилия <span class="required">*</span></label>
-                        <input type="text" id="rep_last_name">
-                    </div>
-                    <div class="form-group">
-                        <label>Имя <span class="required">*</span></label>
-                        <input type="text" id="rep_first_name">
-                    </div>
-                    <div class="form-group">
-                        <label>Отчество</label>
-                        <input type="text" id="rep_patronymic">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Статус <span class="required">*</span></label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" name="rep_status" id="rep_parent" value="parent">
-                            <label for="rep_parent">Родитель</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" name="rep_status" id="rep_adopter" value="adopter">
-                            <label for="rep_adopter">Усыновитель</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" name="rep_status" id="rep_guardian" value="guardian">
-                            <label for="rep_guardian">Опекун</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" name="rep_status" id="rep_trustee" value="trustee">
-                            <label for="rep_trustee">Попечитель</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="inline-fields">
-                    <div class="form-group">
-                        <label>Документ (серия, номер)</label>
-                        <input type="text" id="rep_document" placeholder="Серия и номер документа">
-                    </div>
-                    <div class="form-group">
-                        <label>Контактный телефон</label>
-                        <input type="tel" id="rep_phone" placeholder="+7 (999) 123-45-67">
-                    </div>
-                </div>
-            </div>
-        </div>`;
-    }
-
-    function toggleLegalRepFields() {
-        const isRep = document.getElementById('adult_is_rep').checked;
-        const fields = document.getElementById('legal_rep_fields');
-        if (isRep) {
-            fields.classList.add('hidden');
-        } else {
-            fields.classList.remove('hidden');
-        }
-    }
-
+    // ============================================================
+    // Status detail toggle
+    // ============================================================
     function toggleStatusDetail(prefix) {
         const detail = document.getElementById(prefix + '_status_detail');
+        if (!detail) return;
         const checked = document.querySelector('input[name="' + prefix + '_status"]:checked');
         if (checked) {
             detail.classList.remove('hidden');
@@ -1059,6 +1180,7 @@
 
     function toggleTeamStatusDetail(selectEl) {
         const detail = selectEl.parentElement.querySelector('.tm_status_detail');
+        if (!detail) return;
         if (selectEl.value) {
             detail.classList.remove('hidden');
             if (selectEl.value === 'rural') detail.placeholder = 'Адрес регистрации по паспорту';
@@ -1069,16 +1191,26 @@
         }
     }
 
+    // ============================================================
+    // Error helpers
+    // ============================================================
     function showError(inputId, errorId) {
-        document.getElementById(inputId).classList.add('error');
-        document.getElementById(errorId).style.display = 'block';
+        const inp = document.getElementById(inputId);
+        if (inp) inp.classList.add('error');
+        const err = document.getElementById(errorId);
+        if (err) err.style.display = 'block';
     }
 
     function hideError(inputId, errorId) {
-        document.getElementById(inputId).classList.remove('error');
-        document.getElementById(errorId).style.display = 'none';
+        const inp = document.getElementById(inputId);
+        if (inp) inp.classList.remove('error');
+        const err = document.getElementById(errorId);
+        if (err) err.style.display = 'none';
     }
 
+    // ============================================================
+    // Submit
+    // ============================================================
     function submitForm() {
         const type = document.querySelector('input[name="application_type"]:checked').value;
         const email = document.getElementById('confirmation_email').value;
@@ -1098,7 +1230,6 @@
 
         let participants = [];
         let discipline = null;
-        let valid = true;
 
         if (type === 'individual') {
             discipline = document.querySelector('input[name="discipline"]:checked');
@@ -1129,9 +1260,13 @@
             if (!members) return;
             participants = participants.concat(members);
         } else if (type === 'family') {
-            const adult = collectFamilyAdult();
-            if (!adult) return;
-            participants.push(adult);
+            const adult1 = collectFamilyAdultData('adult1', '№1');
+            if (!adult1) return;
+            participants.push(adult1);
+
+            const adult2 = collectFamilyAdultData('adult2', '№2');
+            if (!adult2) return;
+            participants.push(adult2);
 
             const minor = collectFamilyMinor();
             if (!minor) return;
@@ -1200,13 +1335,13 @@
         });
     }
 
+    // ============================================================
+    // Data collectors
+    // ============================================================
     function collectIndividualParticipant() {
         const lastName = document.getElementById('ind_last_name').value.trim();
         const firstName = document.getElementById('ind_first_name').value.trim();
-        if (!lastName || !firstName) {
-            alert('Заполните ФИО участника');
-            return null;
-        }
+        if (!lastName || !firstName) { alert('Заполните ФИО участника'); return null; }
         const status = document.querySelector('input[name="ind_status"]:checked');
         const phone = document.getElementById('ind_phone').value.trim();
         const indEmail = document.getElementById('ind_email').value.trim();
@@ -1278,30 +1413,30 @@
         return members;
     }
 
-    function collectFamilyAdult() {
-        const lastName = document.getElementById('adult_last_name').value.trim();
-        const firstName = document.getElementById('adult_first_name').value.trim();
-        if (!lastName || !firstName) { alert('Заполните ФИО совершеннолетнего участника'); return null; }
-        if (!document.getElementById('adult_birth_date').value) { alert('Укажите дату рождения взрослого'); return null; }
-        if (!document.getElementById('adult_gender').value) { alert('Укажите пол взрослого участника'); return null; }
-        const status = document.querySelector('input[name="adult_status"]:checked');
-        if (!status) { alert('Выберите статус взрослого участника'); return null; }
-        const phone = document.getElementById('adult_phone').value.trim();
-        const adEmail = document.getElementById('adult_email').value.trim();
-        if (!phone) { alert('Укажите телефон взрослого'); return null; }
-        if (!adEmail) { alert('Укажите email взрослого'); return null; }
+    function collectFamilyAdultData(prefix, label) {
+        const lastName = document.getElementById(prefix + '_last_name').value.trim();
+        const firstName = document.getElementById(prefix + '_first_name').value.trim();
+        if (!lastName || !firstName) { alert('Заполните ФИО совершеннолетнего участника ' + label); return null; }
+        if (!document.getElementById(prefix + '_birth_date').value) { alert('Укажите дату рождения совершеннолетнего участника ' + label); return null; }
+        if (!document.getElementById(prefix + '_gender').value) { alert('Укажите пол совершеннолетнего участника ' + label); return null; }
+        const status = document.querySelector('input[name="' + prefix + '_status"]:checked');
+        if (!status) { alert('Выберите статус совершеннолетнего участника ' + label); return null; }
+        const phone = document.getElementById(prefix + '_phone').value.trim();
+        const adEmail = document.getElementById(prefix + '_email').value.trim();
+        if (!phone) { alert('Укажите телефон совершеннолетнего участника ' + label); return null; }
+        if (!adEmail) { alert('Укажите email совершеннолетнего участника ' + label); return null; }
 
         return {
             last_name: lastName,
             first_name: firstName,
-            patronymic: document.getElementById('adult_patronymic').value.trim() || null,
-            birth_date: document.getElementById('adult_birth_date').value,
-            gender: document.getElementById('adult_gender').value,
+            patronymic: document.getElementById(prefix + '_patronymic').value.trim() || null,
+            birth_date: document.getElementById(prefix + '_birth_date').value,
+            gender: document.getElementById(prefix + '_gender').value,
             participant_status: status.value,
-            status_detail: document.getElementById('adult_status_detail').value.trim() || null,
+            status_detail: document.getElementById(prefix + '_status_detail').value.trim() || null,
             phone: phone,
             email: adEmail,
-            clothing_size: document.getElementById('adult_clothing_size').value || null,
+            clothing_size: document.getElementById(prefix + '_clothing_size').value || null,
             is_minor: false,
         };
     }
@@ -1314,7 +1449,7 @@
         if (!document.getElementById('minor_age').value) { alert('Укажите возраст несовершеннолетнего'); return null; }
         if (!document.getElementById('minor_gender').value) { alert('Укажите пол несовершеннолетнего'); return null; }
 
-        const result = {
+        return {
             last_name: lastName,
             first_name: firstName,
             patronymic: document.getElementById('minor_patronymic').value.trim() || null,
@@ -1324,26 +1459,6 @@
             clothing_size: document.getElementById('minor_clothing_size').value || null,
             is_minor: true,
         };
-
-        // Legal representative
-        const adultIsRep = document.getElementById('adult_is_rep').checked;
-        if (!adultIsRep) {
-            const repLn = document.getElementById('rep_last_name').value.trim();
-            const repFn = document.getElementById('rep_first_name').value.trim();
-            if (!repLn || !repFn) { alert('Заполните ФИО законного представителя'); return null; }
-            const repStatus = document.querySelector('input[name="rep_status"]:checked');
-            if (!repStatus) { alert('Укажите статус законного представителя'); return null; }
-            result.legal_representative = {
-                last_name: repLn,
-                first_name: repFn,
-                patronymic: document.getElementById('rep_patronymic').value.trim() || null,
-                status: repStatus.value,
-                document: document.getElementById('rep_document').value.trim() || null,
-                phone: document.getElementById('rep_phone').value.trim() || null,
-            };
-        }
-
-        return result;
     }
     </script>
 </body>
