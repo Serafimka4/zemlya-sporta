@@ -858,15 +858,9 @@
                 </div>
                 <input type="text" id="ind_status_detail" class="status-detail-input hidden" placeholder="Укажите адрес / место работы / образовательную организацию">
             </div>
-            <div class="inline-fields">
-                <div class="form-group">
-                    <label>Контактный телефон <span class="required">*</span></label>
-                    <input type="tel" id="ind_phone" placeholder="+7 (999) 123-45-67">
-                </div>
-                <div class="form-group">
-                    <label>Электронная почта <span class="required">*</span></label>
-                    <input type="email" id="ind_email" placeholder="email@example.ru">
-                </div>
+            <div class="form-group">
+                <label>Контактный телефон <span class="required">*</span></label>
+                <input type="tel" id="ind_phone" placeholder="+7 (999) 123-45-67">
             </div>
             <div class="form-group">
                 <label>Размер одежды</label>
@@ -895,15 +889,9 @@
                     <input type="text" id="captain_patronymic">
                 </div>
             </div>
-            <div class="inline-fields">
-                <div class="form-group">
-                    <label>Контактный телефон <span class="required">*</span></label>
-                    <input type="tel" id="captain_phone" placeholder="+7 (999) 123-45-67">
-                </div>
-                <div class="form-group">
-                    <label>Электронная почта <span class="required">*</span></label>
-                    <input type="email" id="captain_email" placeholder="email@example.ru">
-                </div>
+            <div class="form-group">
+                <label>Контактный телефон <span class="required">*</span></label>
+                <input type="tel" id="captain_phone" placeholder="+7 (999) 123-45-67">
             </div>
         </div>`;
     }
@@ -1033,15 +1021,9 @@
                 </div>
                 <input type="text" id="${prefix}_status_detail" class="status-detail-input hidden" placeholder="Укажите адрес / место работы / образовательную организацию">
             </div>
-            <div class="inline-fields">
-                <div class="form-group">
-                    <label>Контактный телефон <span class="required">*</span></label>
-                    <input type="tel" id="${prefix}_phone" placeholder="+7 (999) 123-45-67">
-                </div>
-                <div class="form-group">
-                    <label>Электронная почта <span class="required">*</span></label>
-                    <input type="email" id="${prefix}_email" placeholder="email@example.ru">
-                </div>
+            <div class="form-group">
+                <label>Контактный телефон <span class="required">*</span></label>
+                <input type="tel" id="${prefix}_phone" placeholder="+7 (999) 123-45-67">
             </div>
             <div class="form-group">
                 <label>Размер одежды</label>
@@ -1174,7 +1156,6 @@
 
             const p = collectIndividualParticipant();
             if (!p) return;
-            p.email = p.email || email;
             participants.push(p);
         } else if (type === 'team') {
             discipline = document.querySelector('input[name="team_discipline"]:checked');
@@ -1279,9 +1260,7 @@
         }
         const status = document.querySelector('input[name="ind_status"]:checked');
         const phone = document.getElementById('ind_phone').value.trim();
-        const indEmail = document.getElementById('ind_email').value.trim();
         if (!phone) { alert('Укажите контактный телефон'); return null; }
-        if (!indEmail) { alert('Укажите электронную почту участника'); return null; }
         if (!document.getElementById('ind_birth_date').value) { alert('Укажите дату рождения'); return null; }
         if (!document.getElementById('ind_gender').value) { alert('Укажите пол'); return null; }
         if (!status) { alert('Выберите статус участника'); return null; }
@@ -1295,7 +1274,7 @@
             participant_status: status ? status.value : null,
             status_detail: document.getElementById('ind_status_detail').value.trim() || null,
             phone: phone,
-            email: indEmail,
+            email: null,
             clothing_size: document.getElementById('ind_clothing_size').value || null,
             is_minor: false,
         };
@@ -1305,16 +1284,14 @@
         const lastName = document.getElementById('captain_last_name').value.trim();
         const firstName = document.getElementById('captain_first_name').value.trim();
         const phone = document.getElementById('captain_phone').value.trim();
-        const capEmail = document.getElementById('captain_email').value.trim();
         if (!lastName || !firstName) { alert('Заполните ФИО капитана'); return null; }
         if (!phone) { alert('Укажите телефон капитана'); return null; }
-        if (!capEmail) { alert('Укажите email капитана'); return null; }
         return {
             last_name: lastName,
             first_name: firstName,
             patronymic: document.getElementById('captain_patronymic').value.trim() || null,
             phone: phone,
-            email: capEmail,
+            email: null,
             is_captain: true,
             is_minor: false,
         };
@@ -1358,9 +1335,7 @@
         const status = document.querySelector('input[name="' + prefix + '_status"]:checked');
         if (!status) { alert('Выберите статус взрослого участника №' + num); return null; }
         const phone = document.getElementById(prefix + '_phone').value.trim();
-        const adEmail = document.getElementById(prefix + '_email').value.trim();
         if (!phone) { alert('Укажите телефон взрослого участника №' + num); return null; }
-        if (!adEmail) { alert('Укажите email взрослого участника №' + num); return null; }
 
         return {
             last_name: lastName,
@@ -1371,7 +1346,7 @@
             participant_status: status.value,
             status_detail: document.getElementById(prefix + '_status_detail').value.trim() || null,
             phone: phone,
-            email: adEmail,
+            email: null,
             clothing_size: document.getElementById(prefix + '_clothing_size').value || null,
             is_minor: false,
         };
