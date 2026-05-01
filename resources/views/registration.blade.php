@@ -21,7 +21,7 @@
         .header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, #1e2e5c 0%, #2d4187 50%, #4a6bc7 100%);
+            background: #4c846d;
             border-radius: 16px 16px 0 0;
             color: white;
         }
@@ -29,7 +29,7 @@
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #eab04b;
+            color: #ffffff;
         }
         .header p {
             font-size: 16px;
@@ -241,7 +241,7 @@
         .section-title {
             font-size: 20px;
             font-weight: 600;
-            color: #1e2e5c;
+            color: #2d4187;
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid #eef2fa;
@@ -415,7 +415,7 @@
             <!-- Landing -->
             <div id="landing" class="step active">
                 <div style="text-align: center; padding: 40px 0;">
-                    <h2 style="color: #1e2e5c; margin-bottom: 16px;">Добро пожаловать!</h2>
+                    <h2 style="color: #2d4187; margin-bottom: 16px;">Добро пожаловать!</h2>
                     <p style="color: #666; margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">
                         Для участия во Всероссийском Марафоне «Земля спорта — 2026» заполните форму регистрации.
                     </p>
