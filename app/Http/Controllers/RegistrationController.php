@@ -21,6 +21,7 @@ class RegistrationController extends Controller
     public function getRegions()
     {
         $regions = config('regions.subjects');
+        sort($regions, SORT_LOCALE_STRING);
         return response()->json($regions);
     }
 
